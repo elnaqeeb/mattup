@@ -16,15 +16,45 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-           <!-- <li class="breadcrumb-item active" aria-current="page">maps</li> -->
+            <!-- <li class="breadcrumb-item active" aria-current="page">maps</li> -->
 
         </ol>
     </nav>
 
-    <h1>Finding Me</h1>
-<button onclick="getLocation()">Where am I?</button>
-<p id="location"></p>
 
+    <button onclick="addcookie()">add to db</button>
+    <button onclick="printlist()">print list</button>
+    <button onclick="clearlist()">clear list</button>
+
+    <div id="locations"></div>
+
+    <?php 
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password,'mydb');
+
+    // Check connection
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+
+    foreach($_COOKIE as  $key => $val)
+    {
+        //$lat= explode(",",$val,0);
+        //$lon=explode(",",$val,1);
+        $query="insert into locations values (null,$val";
+        mysqli_query($conn,$query);
+
+        $query2="select * from `locations`";
+        if($result=mysqli_query($conn,$query2)){
+        $row=  mysqli_fetch_array($result);
+        print_r($row);
+        }
+    }
+
+    ?>
 
 
 
