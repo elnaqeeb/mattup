@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+	<script></script>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -20,18 +20,18 @@
 
         </ol>
     </nav>
-
-
+    
+     <a href="./php/API.php"> <button>API</button></a>
     <button onclick="addcookie()">add to db</button>
     <button onclick="printlist()">print list</button>
-    <button onclick="clearlist()">clear list</button>
+    <button onclick="clearcookie()">clear list</button>
 
-    <div id="locations"></div>
+    <div  id="locations"></div>
 
     <?php 
     $servername = "localhost";
     $username = "root";
-    $password = "";
+    $password = "";  
     // Create connection
     $conn = new mysqli($servername, $username, $password,'mydb');
 
@@ -82,7 +82,7 @@
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/jsd.js"></script>
     <script src="./scripts/stackpath.js"></script>
-    <script src="./scripts/scribt.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
